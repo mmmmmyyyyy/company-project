@@ -1,0 +1,336 @@
+@charset "utf-8";
+ 
+/* 브라우저 리셋 기본 5가지 */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(46, 46, 46);
+}
+
+ul, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    vertical-align: top;
+    border: 0;
+}
+
+/* 
+    인라인 블록 속성의 img 태그는 밑을 기준으로 정렬되기 때문에
+    vertical-align 속성을 이용해 정렬 기준을 top으로 잡아줌.
+    또 브라우저에 따라 img 태그에 테두리를 긋는 경우가 있어 border: 0까지 적용해줌.
+*/
+
+.wrap{
+    width: 100%;
+    min-width: 1240px;
+}
+
+/* 
+    데스크탑 브라우저에서는 100%를 꼭 잡아주지 않아도 되지만,
+    모바일 환경을 생각해서 100% 잡아주고 시작하기.
+*/
+
+/* header */
+
+
+.headerin{
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+/*
+     안전 사이즈란? 브라우저의 크기가 늘거나 줄어들어도 반드시 보여야 하는 영역
+     여기선 .headerin을 말하고 width값을 고정해줬음.
+*/
+
+.logo a{
+    display: block;
+    width: 138px;
+    height: 20px;
+    background-image: url(../img/logo.gif);
+    text-indent: -99999px;
+}
+
+.gnb ul{
+    display: flex;   
+}
+
+.gnb li{
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+.gnb li a{
+    color: rgb(46, 46, 46);
+    font-size: 18px;
+}
+
+.gnb li a:hover{
+    color: palevioletred;
+}
+/*  a 태그의 글자색은 반드시 a 태그에서 변경해야함 */
+
+
+.member ul{
+    display: flex;
+}
+
+.member li{
+    margin-left: 15px;
+}
+
+.member li a{
+    color: rgb(46, 46, 46);
+}
+
+.btnSc a{
+    display: block;
+    width: 22px;
+    height: 20px;
+    background: url(../img/icon_search.png) no-repeat;
+    text-indent: -99999px;
+}
+
+.btnCart a{
+    display: block;
+    width: 22px;
+    height: 20px;
+    background-image: url(../img/icon_cart.png);
+    text-indent: -99999px;
+}
+
+.member li a:hover{
+    text-decoration: underline;
+}
+
+/* container */
+
+.main1 {
+    height: 480px;
+    position: relative;
+    margin-bottom: 50px;
+    overflow: hidden;
+    /* .main1의 공간 밖의 내용을 보이지 않게 설정함 */
+}
+
+.main1Img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -800px;
+}
+
+/* 
+    ★ .main1Img의 이미지 너비값이 안전사이즈보다 넓음.
+    ★ 그래서 강제로 가운데 배치하기 위해서 position: absolute를 사용함.
+    ★ .main1의 하나뿐인 자식인 .mainImg가 absolute 처리가 되면
+    세로 높이 값이 0으로 처리가 되므로
+    .main1에서 사용할 만큼의 높이값을 강제로 입력함
+
+    ★ 브라우저의 너비보다 더 큰 이미지 때문에 아래쪽에 가로 스크롤이 생기므로
+    이를 정리하기 위해서 .main1에 overflow: hidden;을 설정함.
+    ★ 안전사이즈보다 브라우저의 크기가 작아질 경우
+    .main1Img의 이미지가 잘려서 표시가 되므로
+    전체 영역의 최소 너비값(min-width)을 안전사이즈의 너비로 고정함.
+*/
+
+.main2{
+    width: 1200px;
+    margin: 0 auto 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main3{
+    width: 1200px;
+    margin: 0 auto 150px;
+    position: relative;
+}
+
+.main3 h2{
+    font-size: 23px;
+    line-height: 23px;
+    margin-bottom: 20px;
+}
+
+/* 
+    css를 시작할 때 body 태그에 적용한 기본 줄높이가 20px임
+    폰트의 기본 높이값 = 줄높이
+    폰트 사이즈가 더 커지면 글자가 위,아래의 영역과 겹쳐지므로
+    줄높이도 같이 수정해야함.
+*/
+
+.main3 h2 span{
+    font-weight: normal;
+}
+
+.main3 ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main3 li{
+    width: 285px;
+    height: 285px;
+    text-align: center;
+}
+
+.main3 a{
+    color: rgb(34, 34, 34);
+}
+
+.main3 .itemImg{
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;
+}
+
+.main3 .itemImg img{
+    width: 100%;
+}
+
+/* img 태그는 이미지 크기를 조절할 때만 직접적으로 건드리기!! */
+
+.main3 .itemBrand{
+    color: rgb(78, 78, 78);
+    font-weight: 500;
+}
+
+.main3 .itemName{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.main3 .itemPrice{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.main3 .itemPrice span{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;  
+}
+
+/* 
+    <span> 태그 자체는 인라인 속성이기 때문에 margin 값을 가질 수 없음
+    따라서 인라인 블록 속성으로 변경해준뒤, 위에 적었던 인라인 블록 속성의
+    이미지가 아래를 기준으로 정렬되는 특성을 변경하기 위해 vertical-align을 top으로 잡아줌
+    그 다음에 원하는대로 margin 값 적용 가능
+*/
+
+.main3 .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 500;
+}
+
+.main3 .more a{
+    padding-right: 16px;
+    background: url(../img/icon_plus.png) no-repeat right center;
+}
+
+.main4{
+    width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.main4 ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main4 li{
+    position: relative;
+    width: 380px;
+}
+
+.main4 .m4Txt{
+    font-size: 15px;
+    color: rgb(70, 70, 70);
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+
+/* footer */
+
+.footer{
+    border-top: 1px solid grey;
+    padding: 30px 0 50px;
+}
+
+.footerIn{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerIn a{
+    color: rgb(70, 70, 70);
+}
+
+.footerIn a:hover{
+    text-decoration: underline;
+}
+
+
+.fLeft{
+    width: 800px;
+}
+
+.fMenu{
+    margin-bottom: 20px;
+}
+
+.fMenu ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fMenu li{
+    font-weight: 500;
+}
+
+.fMenu .point a{
+    color: palevioletred;
+}
+
+.fInfo .mar{
+    margin-right: 15px;
+}
+
+.fInfo .bar{
+    font-size: 10px;
+    color: grey;
+}
+
+.kg .kg2{
+    padding-top: 50px;
+    margin-bottom: 15px;
+    background: url(../img/inicis.png) no-repeat;
+}
+
+.kg .kg3 a{
+    padding-right: 10px;
+    background: url(../img/arrow01.png) no-repeat right center;
+}
+
